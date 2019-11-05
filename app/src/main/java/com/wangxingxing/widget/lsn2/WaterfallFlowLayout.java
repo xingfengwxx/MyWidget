@@ -1,4 +1,4 @@
-package com.wangxingxing.widget;
+package com.wangxingxing.widget.lsn2;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,8 +1,10 @@
-package com.wangxingxing.widget;
+package com.wangxingxing.widget.lsn2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.wangxingxing.widget.R;
 
 public class WaterfallFlowLayoutActivity extends AppCompatActivity {
 

@@ -10,8 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WaterfallFlowLayoutActivity"
-            android:label="@string/title_waterfall_flow_layout"></activity>
+        <activity android:name=".lsn3.MarqueeActivity"
+            android:label="@string/title_text_marquee"></activity>
+        <activity
+            android:name=".lsn2.WaterfallFlowLayoutActivity"
+            android:label="@string/title_waterfall_flow_layout" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

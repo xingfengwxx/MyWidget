@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
+import com.wangxingxing.widget.lsn3.MarqueeActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
     private List<String> getData() {
         List<String> titles = new ArrayList<>();
         titles.add("瀑布流式布局");
-        titles.add("跑马灯效果");
+        titles.add("文字跑马灯效果");
         titles.add("滚动视图");
         return titles;
     }
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
     public void onClick(View view, String title) {
         if ("瀑布流式布局".equals(title)) {
             startActivity(new Intent(MainActivity.this, WaterfallFlowLayoutActivity.class));
+        } else if ("文字跑马灯效果".equals(title)) {
+            startActivity(new Intent(MainActivity.this, MarqueeActivity.class));
         }
     }
 }

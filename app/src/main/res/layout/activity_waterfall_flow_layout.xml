@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WaterfallFlowLayoutActivity">
+    tools:context=".lsn2.WaterfallFlowLayoutActivity">
 
-    <com.wangxingxing.widget.WaterfallFlowLayout
+    <com.wangxingxing.widget.lsn2.WaterfallFlowLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -75,5 +75,5 @@
     <TextView
         style="@style/text_flag_01"
         android:text="hel2" />
-    </com.wangxingxing.widget.WaterfallFlowLayout>
+    </com.wangxingxing.widget.lsn2.WaterfallFlowLayout>
 </LinearLayout>
