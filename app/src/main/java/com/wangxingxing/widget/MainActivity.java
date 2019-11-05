@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
+import com.wangxingxing.widget.lsn3.RadarScanActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
     private List<String> getData() {
         List<String> titles = new ArrayList<>();
         titles.add("瀑布流式布局");
-        titles.add("文字跑马灯效果");
-        titles.add("滚动视图");
+        titles.add("文字跑马灯");
+        titles.add("雷达扫描");
         return titles;
     }
 
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, WaterfallFlowLayoutActivity.class));
         } else if ("文字跑马灯效果".equals(title)) {
             startActivity(new Intent(MainActivity.this, MarqueeActivity.class));
+        } else if ("雷达扫描".equals(title)) {
+            startActivity(new Intent(MainActivity.this, RadarScanActivity.class));
         }
     }
 }
