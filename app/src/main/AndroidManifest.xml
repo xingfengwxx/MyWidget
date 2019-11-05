@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn3.RadarScanActivity"
-            android:label="@string/title_radar_scan"></activity>
+        <activity android:name=".lsn3.ZoomImageActivity"
+            android:label="@string/title_zoom"></activity>
+        <activity
+            android:name=".lsn3.RadarScanActivity"
+            android:label="@string/title_radar_scan" />
         <activity
             android:name=".lsn3.MarqueeActivity"
             android:label="@string/title_text_marquee" />
