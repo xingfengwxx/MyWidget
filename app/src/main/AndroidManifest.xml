@@ -12,10 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn3.GradientActivity"
-            android:label="@string/title_gradient_mode"></activity>
-        <activity android:name=".lsn3.xfermode.XfermodeSRCActivity"
-            android:label="@string/title_xfermode_src"/>
+        <activity android:name=".lsn4.WatchViewActivity"
+            android:label="@string/title_wathch"></activity>
+        <activity
+            android:name=".lsn3.GradientActivity"
+            android:label="@string/title_gradient_mode" />
+        <activity
+            android:name=".lsn3.xfermode.XfermodeSRCActivity"
+            android:label="@string/title_xfermode_src" />
         <activity
             android:name=".lsn3.xfermode.XfermodeDTSActivity"
             android:label="@string/title_xfermode_dts" />
