@@ -5,4 +5,5 @@
     <string name="title_text_marquee">文字跑马灯效果</string>
     <string name="title_radar_scan">雷达扫描</string>
     <string name="title_zoom">放大镜</string>
+    <string name="title_filter">滤镜</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
+import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
 import com.wangxingxing.widget.lsn3.RadarScanActivity;
 import com.wangxingxing.widget.lsn3.ZoomImageActivity;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("文字跑马灯");
         titles.add("雷达扫描");
         titles.add("放大镜");
+        titles.add("滤镜");
         return titles;
     }
 
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, RadarScanActivity.class));
         } else if ("放大镜".equals(title)) {
             startActivity(new Intent(MainActivity.this, ZoomImageActivity.class));
+        } else if ("滤镜".equals(title)) {
+            startActivity(new Intent(MainActivity.this, FilterActivity.class));
         }
     }
 }
