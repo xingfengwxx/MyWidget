@@ -9,4 +9,5 @@
     <string name="title_xfermode">Xfermode</string>
     <string name="title_xfermode_dts">Xfermode_DTS</string>
     <string name="title_xfermode_src">Xfermode_SRC</string>
+    <string name="title_gradient_mode">渲染模式</string>
 </resources>

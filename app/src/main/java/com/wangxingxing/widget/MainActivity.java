@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
+import com.wangxingxing.widget.lsn3.GradientActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
 import com.wangxingxing.widget.lsn3.RadarScanActivity;
 import com.wangxingxing.widget.lsn3.ZoomImageActivity;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("Xfermode");
         titles.add("Xfermode_DTS");
         titles.add("Xfermode_SRC");
+        titles.add("渲染模式");
         return titles;
     }
 
@@ -77,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, XfermodeDTSActivity.class));
         } else if ("Xfermode_SRC".equals(title)) {
             startActivity(new Intent(MainActivity.this, XfermodeSRCActivity.class));
+        } else if ("渲染模式".equals(title)) {
+            startActivity(new Intent(MainActivity.this, GradientActivity.class));
         }
     }
 }
