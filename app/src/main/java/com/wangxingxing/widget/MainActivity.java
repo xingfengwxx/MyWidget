@@ -18,6 +18,7 @@ import com.wangxingxing.widget.lsn3.ZoomImageActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeDTSActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeSRCActivity;
+import com.wangxingxing.widget.lsn4.LayerActivity;
 import com.wangxingxing.widget.lsn4.WatchViewActivity;
 
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("Xfermode_SRC");
         titles.add("渲染模式");
         titles.add("表盘");
+        titles.add("图层");
         return titles;
     }
 
@@ -85,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, GradientActivity.class));
         } else if ("表盘".equals(title)) {
             startActivity(new Intent(MainActivity.this, WatchViewActivity.class));
+        } else if ("图层".equals(title)) {
+            startActivity(new Intent(MainActivity.this, LayerActivity.class));
         }
     }
 }
