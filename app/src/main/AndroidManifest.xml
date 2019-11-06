@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn3.xfermode.XfermodeDTSActivity"
-            android:label="@string/title_xfermode_dts"></activity>
+        <activity android:name=".lsn3.xfermode.XfermodeSRCActivity"></activity>
+        <activity
+            android:name=".lsn3.xfermode.XfermodeDTSActivity"
+            android:label="@string/title_xfermode_dts" />
         <activity
             android:name=".lsn3.xfermode.XfermodeActivity"
             android:label="@string/title_xfermode" />

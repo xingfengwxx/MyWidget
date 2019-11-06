@@ -16,6 +16,7 @@ import com.wangxingxing.widget.lsn3.RadarScanActivity;
 import com.wangxingxing.widget.lsn3.ZoomImageActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeDTSActivity;
+import com.wangxingxing.widget.lsn3.xfermode.XfermodeSRCActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("滤镜");
         titles.add("Xfermode");
         titles.add("Xfermode_DTS");
+        titles.add("Xfermode_SRC");
         return titles;
     }
 
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, XfermodeActivity.class));
         } else if ("Xfermode_DTS".equals(title)) {
             startActivity(new Intent(MainActivity.this, XfermodeDTSActivity.class));
+        } else if ("Xfermode_SRC".equals(title)) {
+            startActivity(new Intent(MainActivity.this, XfermodeSRCActivity.class));
         }
     }
 }
