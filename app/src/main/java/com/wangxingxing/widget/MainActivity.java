@@ -14,6 +14,7 @@ import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
 import com.wangxingxing.widget.lsn3.RadarScanActivity;
 import com.wangxingxing.widget.lsn3.ZoomImageActivity;
+import com.wangxingxing.widget.lsn3.xfermode.XfermodeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("雷达扫描");
         titles.add("放大镜");
         titles.add("滤镜");
+        titles.add("Xfermode");
         return titles;
     }
 
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, ZoomImageActivity.class));
         } else if ("滤镜".equals(title)) {
             startActivity(new Intent(MainActivity.this, FilterActivity.class));
+        } else if ("Xfermode".equals(title)) {
+            startActivity(new Intent(MainActivity.this, XfermodeActivity.class));
         }
     }
 }

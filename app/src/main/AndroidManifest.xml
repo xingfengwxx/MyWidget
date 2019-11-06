@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn3.FilterActivity"
-            android:label="@string/title_filter"></activity>
+        <activity android:name=".lsn3.xfermode.XfermodeActivity"
+            android:label="@string/title_xfermode"></activity>
+        <activity
+            android:name=".lsn3.FilterActivity"
+            android:label="@string/title_filter" />
         <activity
             android:name=".lsn3.ZoomImageActivity"
             android:label="@string/title_zoom" />
