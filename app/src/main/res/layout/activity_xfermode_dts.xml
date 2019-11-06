@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lsn3.xfermode.XfermodeDTSActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="2">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/rounddstinbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="圆角"/>
+
+            <Button
+                android:id="@+id/invertdstinbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="倒影图像"/>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/irregularwavebtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="不规则wave"/>
+
+            <Button
+                android:id="@+id/heartbitbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="心电图"/>
+        </TableRow>
+    </TableLayout>
+
+    <com.wangxingxing.widget.lsn3.xfermode.RoundImageView
+        android:id="@+id/roundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.wangxingxing.widget.lsn3.xfermode.InvertedImageView
+        android:id="@+id/invertedImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.wangxingxing.widget.lsn3.xfermode.IrregularWaveView
+        android:id="@+id/irregularWaveView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <com.wangxingxing.widget.lsn3.xfermode.HeartMap
+        android:id="@+id/heartMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+</LinearLayout>

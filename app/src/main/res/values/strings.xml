@@ -7,4 +7,5 @@
     <string name="title_zoom">放大镜</string>
     <string name="title_filter">滤镜</string>
     <string name="title_xfermode">Xfermode</string>
+    <string name="title_xfermode_dts">Xfermode_DTS</string>
 </resources>
