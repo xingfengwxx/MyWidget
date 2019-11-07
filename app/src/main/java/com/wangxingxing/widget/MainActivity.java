@@ -21,6 +21,8 @@ import com.wangxingxing.widget.lsn3.xfermode.XfermodeSRCActivity;
 import com.wangxingxing.widget.lsn4.LayerActivity;
 import com.wangxingxing.widget.lsn4.WatchViewActivity;
 import com.wangxingxing.widget.lsn5.ScrollActivity;
+import com.wangxingxing.widget.lsn6.BezierActivity;
+import com.wangxingxing.widget.lsn6.PathActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("表盘");
         titles.add("图层");
         titles.add("滚动视图");
+        titles.add("Path绘制");
+        titles.add("多阶贝塞尔曲线");
         return titles;
     }
 
@@ -93,6 +97,10 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, LayerActivity.class));
         } else if ("滚动视图".equals(title)) {
             startActivity(new Intent(MainActivity.this, ScrollActivity.class));
+        } else if ("Path绘制".equals(title)) {
+            startActivity(new Intent(MainActivity.this, PathActivity.class));
+        } else if ("多阶贝塞尔曲线".equals(title)) {
+            startActivity(new Intent(MainActivity.this, BezierActivity.class));
         }
     }
 }
