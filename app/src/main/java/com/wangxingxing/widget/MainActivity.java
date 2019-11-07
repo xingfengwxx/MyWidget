@@ -24,6 +24,7 @@ import com.wangxingxing.widget.lsn5.ScrollActivity;
 import com.wangxingxing.widget.lsn6.BezierActivity;
 import com.wangxingxing.widget.lsn6.DragBubbleActivity;
 import com.wangxingxing.widget.lsn6.PathActivity;
+import com.wangxingxing.widget.lsn7.LoadingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("Path绘制");
         titles.add("多阶贝塞尔曲线");
         titles.add("QQ气泡");
+        titles.add("LoadingView");
         return titles;
     }
 
@@ -105,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, BezierActivity.class));
         } else if ("QQ气泡".equals(title)) {
             startActivity(new Intent(MainActivity.this, DragBubbleActivity.class));
+        } else if ("LoadingView".equals(title)) {
+            startActivity(new Intent(MainActivity.this, LoadingActivity.class));
         }
     }
 }

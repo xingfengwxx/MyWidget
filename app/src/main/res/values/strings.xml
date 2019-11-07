@@ -16,4 +16,5 @@
     <string name="title_path">Path绘制</string>
     <string name="title_bezier">多阶贝塞尔曲线</string>
     <string name="title_qq_drag_bubble">QQ气泡</string>
+    <string name="title_loading_view">LoadingView</string>
 </resources>
