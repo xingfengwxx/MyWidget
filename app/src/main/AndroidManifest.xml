@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn6.BezierActivity"
-            android:label="@string/title_bezier"></activity>
+        <activity android:name=".lsn6.DragBubbleActivity"
+            android:label="@string/title_qq_drag_bubble"></activity>
+        <activity
+            android:name=".lsn6.BezierActivity"
+            android:label="@string/title_bezier" />
         <activity
             android:name=".lsn6.PathActivity"
             android:label="@string/title_path" />
