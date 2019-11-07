@@ -12,4 +12,5 @@
     <string name="title_gradient_mode">渲染模式</string>
     <string name="title_wathch">表盘</string>
     <string name="title_layer">图层</string>
+    <string name="title_scroll">滚动视图</string>
 </resources>

@@ -20,6 +20,7 @@ import com.wangxingxing.widget.lsn3.xfermode.XfermodeDTSActivity;
 import com.wangxingxing.widget.lsn3.xfermode.XfermodeSRCActivity;
 import com.wangxingxing.widget.lsn4.LayerActivity;
 import com.wangxingxing.widget.lsn4.WatchViewActivity;
+import com.wangxingxing.widget.lsn5.ScrollActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("渲染模式");
         titles.add("表盘");
         titles.add("图层");
+        titles.add("滚动视图");
         return titles;
     }
 
@@ -89,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, WatchViewActivity.class));
         } else if ("图层".equals(title)) {
             startActivity(new Intent(MainActivity.this, LayerActivity.class));
+        } else if ("滚动视图".equals(title)) {
+            startActivity(new Intent(MainActivity.this, ScrollActivity.class));
         }
     }
 }

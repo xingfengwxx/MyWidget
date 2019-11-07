@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn4.LayerActivity"
-            android:label="@string/title_layer"></activity>
+        <activity android:name=".lsn5.ScrollActivity"
+            android:label="@string/title_scroll"></activity>
+        <activity
+            android:name=".lsn4.LayerActivity"
+            android:label="@string/title_layer" />
         <activity
             android:name=".lsn4.WatchViewActivity"
             android:label="@string/title_wathch" />
