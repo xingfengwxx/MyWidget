@@ -17,4 +17,9 @@
     <string name="title_bezier">多阶贝塞尔曲线</string>
     <string name="title_qq_drag_bubble">QQ气泡</string>
     <string name="title_loading_view">LoadingView</string>
+    <string name="title_screen_adapter">屏幕适配</string>
+    <string name="title_pixel">动态运行时适配</string>
+    <string name="title_percent">百分比适配</string>
+    <string name="title_density">像素密度适配</string>
+    <string name="title_notch">刘海屏适配</string>
 </resources>

@@ -1,9 +1,12 @@
 package com.wangxingxing.widget;
 
+import android.app.Activity;
 import android.app.Application;
+import android.os.Bundle;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.wangxingxing.widget.lsn8.density.DensityUtils;
 
 public class App extends Application {
 
@@ -14,10 +17,50 @@ public class App extends Application {
         super.onCreate();
 
         initUtils();
+        initLifecycle();
     }
 
     private void initUtils() {
         Utils.init(this);
         LogUtils.getConfig().setGlobalTag(TAG);
+    }
+
+    private void initLifecycle() {
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+                DensityUtils.setDensity(App.this, activity);
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+
+            }
+        });
     }
 }

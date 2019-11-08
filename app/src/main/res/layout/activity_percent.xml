@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wangxingxing.widget.lsn8.percent.PercentLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#f00"
+        app:heightPercent="5%"
+        app:widthPercent="90%"
+        app:marginLeftPercent="30%"
+        app:marginRightPercent="30%"
+        app:marginTopPercent="1%"
+        tools:ignore="MissingPrefix" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:background="#f00"
+        app:heightPercent="30%"
+        app:marginBottomPercent="30%"
+        app:marginLeftPercent="30%"
+        app:marginRightPercent="30%"
+        app:marginTopPercent="30%"
+        app:widthPercent="30%"
+        tools:ignore="MissingPrefix" />
+
+
+</com.wangxingxing.widget.lsn8.percent.PercentLayout>
