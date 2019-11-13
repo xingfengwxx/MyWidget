@@ -22,4 +22,5 @@
     <string name="title_percent">百分比适配</string>
     <string name="title_density">像素密度适配</string>
     <string name="title_notch">刘海屏适配</string>
+    <string name="title_scroll_conflict">滑动冲突</string>
 </resources>

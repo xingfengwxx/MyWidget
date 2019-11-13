@@ -12,16 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn8.notch.NotchActivity"
-            android:label="@string/title_notch"/>
-        <activity android:name=".lsn8.density.DensityActivity"
-            android:label="@string/title_density"/>
-        <activity android:name=".lsn8.percent.PercentActivity"
-            android:label="@string/title_percent"/>
-        <activity android:name=".lsn8.pixel.PixelActivity"
-            android:label="@string/title_pixel"/>
-        <activity android:name=".lsn8.ScreenAdapterActivity"
-            android:label="@string/title_screen_adapter"/>
+        <activity android:name=".lsn10.ConActivity"
+            android:label="@string/title_scroll_conflict"></activity>
+        <activity
+            android:name=".lsn8.notch.NotchActivity"
+            android:label="@string/title_notch" />
+        <activity
+            android:name=".lsn8.density.DensityActivity"
+            android:label="@string/title_density" />
+        <activity
+            android:name=".lsn8.percent.PercentActivity"
+            android:label="@string/title_percent" />
+        <activity
+            android:name=".lsn8.pixel.PixelActivity"
+            android:label="@string/title_pixel" />
+        <activity
+            android:name=".lsn8.ScreenAdapterActivity"
+            android:label="@string/title_screen_adapter" />
         <activity
             android:name=".lsn7.LoadingActivity"
             android:label="@string/title_loading_view" />
