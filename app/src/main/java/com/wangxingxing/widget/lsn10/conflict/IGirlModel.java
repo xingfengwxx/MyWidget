@@ -1,6 +1,6 @@
-package com.wangxingxing.widget.lsn10.model;
+package com.wangxingxing.widget.lsn10.conflict;
 
-import com.wangxingxing.widget.lsn10.bean.Girl;
+import com.wangxingxing.widget.lsn10.conflict.Girl;
 
 import java.util.List;
 

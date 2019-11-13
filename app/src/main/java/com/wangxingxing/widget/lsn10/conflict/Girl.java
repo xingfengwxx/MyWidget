@@ -1,4 +1,4 @@
-package com.wangxingxing.widget.lsn10.bean;
+package com.wangxingxing.widget.lsn10.conflict;
 
 public class Girl {
     private String name;

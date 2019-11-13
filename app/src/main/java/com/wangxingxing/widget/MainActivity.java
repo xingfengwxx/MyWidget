@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wangxingxing.widget.lsn10.ConActivity;
+import com.wangxingxing.widget.lsn10.RecyclerDelActivity;
+import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("LoadingView");
         titles.add("屏幕适配");
         titles.add("滑动冲突");
+        titles.add("RecycleView左滑删除");
+        titles.add("RecycleView左滑显示菜单");
         return titles;
     }
 
@@ -117,6 +121,10 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, ScreenAdapterActivity.class));
         } else if ("滑动冲突".equals(title)) {
             startActivity(new Intent(MainActivity.this, ConActivity.class));
+        } else if ("RecycleView左滑删除".equals(title)) {
+            startActivity(new Intent(MainActivity.this, RecyclerDelActivity.class));
+        } else if ("RecycleView左滑显示菜单".equals(title)) {
+            startActivity(new Intent(MainActivity.this, RecyclerMenuActivity.class));
         }
     }
 }

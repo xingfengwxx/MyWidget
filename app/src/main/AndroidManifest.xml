@@ -12,8 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn10.ConActivity"
-            android:label="@string/title_scroll_conflict"></activity>
+        <activity android:name=".lsn10.RecyclerMenuActivity"
+            android:label="@string/title_recycler_menu"></activity>
+        <activity
+            android:name=".lsn10.RecyclerDelActivity"
+            android:label="@string/title_recycler_del" />
+        <activity
+            android:name=".lsn10.ConActivity"
+            android:label="@string/title_scroll_conflict" />
         <activity
             android:name=".lsn8.notch.NotchActivity"
             android:label="@string/title_notch" />

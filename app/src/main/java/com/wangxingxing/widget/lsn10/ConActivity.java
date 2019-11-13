@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.wangxingxing.widget.R;
-import com.wangxingxing.widget.lsn10.bean.Girl;
-import com.wangxingxing.widget.lsn10.model.GirlModel;
-import com.wangxingxing.widget.lsn10.model.IGirlModel;
+import com.wangxingxing.widget.lsn10.conflict.GirlAdapter;
+import com.wangxingxing.widget.lsn10.conflict.Girl;
+import com.wangxingxing.widget.lsn10.conflict.GirlModel;
+import com.wangxingxing.widget.lsn10.conflict.IGirlModel;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.wangxingxing.widget.lsn10;
+package com.wangxingxing.widget.lsn10.conflict;
 
 import android.content.Context;
 import android.util.AttributeSet;

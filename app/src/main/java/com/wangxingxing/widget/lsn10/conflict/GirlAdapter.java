@@ -1,4 +1,4 @@
-package com.wangxingxing.widget.lsn10;
+package com.wangxingxing.widget.lsn10.conflict;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.wangxingxing.widget.R;
-import com.wangxingxing.widget.lsn10.bean.Girl;
 
 import java.util.List;
 
