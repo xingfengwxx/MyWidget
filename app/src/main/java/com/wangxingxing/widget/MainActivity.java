@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wangxingxing.widget.lsn10.ConActivity;
 import com.wangxingxing.widget.lsn10.RecyclerDelActivity;
 import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
+import com.wangxingxing.widget.lsn11.LiziActivity;
 import com.wangxingxing.widget.lsn11.PropertyAnimActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("RecycleView左滑删除");
         titles.add("RecycleView左滑显示菜单");
         titles.add("属性动画");
+        titles.add("粒子扩散");
         return titles;
     }
 
@@ -129,6 +131,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, RecyclerMenuActivity.class));
         } else if ("属性动画".equals(title)) {
             startActivity(new Intent(MainActivity.this, PropertyAnimActivity.class));
+        } else if ("粒子扩散".equals(title)) {
+            startActivity(new Intent(MainActivity.this, LiziActivity.class));
         }
     }
 

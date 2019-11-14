@@ -26,4 +26,5 @@
     <string name="title_recycler_del">RecycleView左滑删除</string>
     <string name="title_recycler_menu">RecycleView左滑显示菜单</string>
     <string name="title_property_anim">属性动画</string>
+    <string name="title_lizi">粒子扩散</string>
 </resources>
