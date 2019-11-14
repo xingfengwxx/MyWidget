@@ -10,6 +10,10 @@ import java.util.List;
 
 /**
  * 瀑布流布局
+ *
+ * 思路，通过前面两节课我门知道了其实，绘制流程最终会调用到我门的OnMesure  和   onLayout,
+ * 而不通的布局，他们自己的实现不一样，所以才有了我门使用的这些基本布局组件
+ * 那么我们现在自己来开发一个瀑布式的流式布局
  */
 public class WaterfallFlowLayout extends ViewGroup {
 

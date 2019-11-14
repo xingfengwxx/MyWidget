@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn10.RecyclerMenuActivity"
-            android:label="@string/title_recycler_menu"></activity>
+        <activity android:name=".lsn11.PropertyAnimActivity"
+            android:label="@string/title_property_anim"></activity>
+        <activity
+            android:name=".lsn10.RecyclerMenuActivity"
+            android:label="@string/title_recycler_menu" />
         <activity
             android:name=".lsn10.RecyclerDelActivity"
             android:label="@string/title_recycler_del" />

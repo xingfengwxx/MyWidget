@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.wangxingxing.widget.lsn10.ConActivity;
 import com.wangxingxing.widget.lsn10.RecyclerDelActivity;
 import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
+import com.wangxingxing.widget.lsn11.PropertyAnimActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("滑动冲突");
         titles.add("RecycleView左滑删除");
         titles.add("RecycleView左滑显示菜单");
+        titles.add("属性动画");
         return titles;
     }
 
@@ -125,6 +127,9 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, RecyclerDelActivity.class));
         } else if ("RecycleView左滑显示菜单".equals(title)) {
             startActivity(new Intent(MainActivity.this, RecyclerMenuActivity.class));
+        } else if ("属性动画".equals(title)) {
+            startActivity(new Intent(MainActivity.this, PropertyAnimActivity.class));
         }
     }
+
 }

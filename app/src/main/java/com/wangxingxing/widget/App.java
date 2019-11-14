@@ -3,7 +3,10 @@ package com.wangxingxing.widget;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
 import com.wangxingxing.widget.lsn8.density.DensityUtils;
@@ -23,6 +26,14 @@ public class App extends Application {
     private void initUtils() {
         Utils.init(this);
         LogUtils.getConfig().setGlobalTag(TAG);
+
+        CrashUtils.init(new CrashUtils.OnCrashListener() {
+            @Override
+            public void onCrash(String crashInfo, Throwable e) {
+                Log.e(TAG, crashInfo);
+                AppUtils.exitApp();
+            }
+        });
     }
 
     private void initLifecycle() {

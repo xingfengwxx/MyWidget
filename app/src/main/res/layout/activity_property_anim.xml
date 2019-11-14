@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".lsn11.PropertyAnimActivity" >
+
+    <com.wangxingxing.widget.lsn2.WaterfallFlowLayout
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_object"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ObjectAnimator"
+            android:onClick="startAnimator"/>
+        <Button
+            android:id="@+id/btn_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ValueAnimator"
+            android:onClick="startAnimator"/>
+        <Button
+            android:id="@+id/btn_valueholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PropertyValueHolder"
+            android:onClick="startAnimator"/>
+        <Button
+            android:id="@+id/btn_animatorset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AnimatorSet"
+            android:onClick="startAnimator"/>
+        <Button
+            android:id="@+id/btn_interpolator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interpolator"
+            android:onClick="startAnimator"/>
+        <Button
+            android:id="@+id/btn_evaluator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="evaluator"
+            android:onClick="startAnimator"/>
+    </com.wangxingxing.widget.lsn2.WaterfallFlowLayout>
+
+    <ImageView
+        android:id="@+id/img_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/duo"
+        android:visibility="visible" />
+
+</LinearLayout>
