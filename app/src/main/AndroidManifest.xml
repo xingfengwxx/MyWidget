@@ -12,13 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".lsn14.CollapsingToolbarLayoutActivity"
+            android:label="@string/title_collapsing_toolbar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ScrollingTestActivity"
             android:label="@string/title_activity_scrolling_test"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".lsn14.CusBehUpDownActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".lsn14.CusBehUpDownActivity"
             android:label="@string/title_behavior_up_down"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".lsn13.FollowActivity"
             android:label="@string/title_behavior_follow" />

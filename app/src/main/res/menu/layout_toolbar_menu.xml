@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/github"
+        android:icon="@mipmap/github"
+        android:title="github"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/about"
+        android:icon="@mipmap/about"
+        android:title="about"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/more"
+        android:title="more"
+        android:icon="@mipmap/more"
+        app:showAsAction="never"/>
+</menu>

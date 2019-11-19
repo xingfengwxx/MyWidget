@@ -16,6 +16,7 @@ import com.wangxingxing.widget.lsn11.LiziActivity;
 import com.wangxingxing.widget.lsn11.PropertyAnimActivity;
 import com.wangxingxing.widget.lsn12.CustomAnimFrameActivity;
 import com.wangxingxing.widget.lsn13.FollowActivity;
+import com.wangxingxing.widget.lsn14.CollapsingToolbarLayoutActivity;
 import com.wangxingxing.widget.lsn14.CusBehUpDownActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("自定义动画框架");
         titles.add("Behavior（跟随）");
         titles.add("自定义Behavior（上滑隐藏，下拉显示）");
+        titles.add("折叠控件");
         return titles;
     }
 
@@ -145,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, FollowActivity.class));
         } else if ("自定义Behavior（上滑隐藏，下拉显示）".equals(title)) {
             startActivity(new Intent(MainActivity.this, CusBehUpDownActivity.class));
+        } else if ("折叠控件".equals(title)) {
+            startActivity(new Intent(MainActivity.this, CollapsingToolbarLayoutActivity.class));
         }
     }
 

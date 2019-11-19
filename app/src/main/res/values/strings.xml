@@ -30,6 +30,7 @@
     <string name="title_custom_anim_frame">自定义动画框架</string>
     <string name="title_behavior_follow">Behavior（跟随）</string>
     <string name="title_behavior_up_down">自定义Behavior（上滑隐藏，下拉显示）</string>
+    <string name="title_collapsing_toolbar">折叠控件</string>
 
 
     <string name="title_activity_scrolling_test">ScrollingTestActivity</string>
