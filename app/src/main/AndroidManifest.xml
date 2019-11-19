@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn12.CustomAnimFrameActivity"
-            android:label="@string/title_custom_anim_frame"></activity>
+        <activity android:name=".lsn13.FollowActivity"
+            android:label="@string/title_behavior_follow"></activity>
+        <activity
+            android:name=".lsn12.CustomAnimFrameActivity"
+            android:label="@string/title_custom_anim_frame" />
         <activity
             android:name=".lsn11.LiziActivity"
             android:label="@string/title_lizi" />

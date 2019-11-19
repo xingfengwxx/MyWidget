@@ -15,6 +15,7 @@ import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
 import com.wangxingxing.widget.lsn11.LiziActivity;
 import com.wangxingxing.widget.lsn11.PropertyAnimActivity;
 import com.wangxingxing.widget.lsn12.CustomAnimFrameActivity;
+import com.wangxingxing.widget.lsn13.FollowActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("属性动画");
         titles.add("粒子扩散");
         titles.add("自定义动画框架");
+        titles.add("Behavior（跟随）");
         return titles;
     }
 
@@ -137,6 +139,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, LiziActivity.class));
         } else if ("自定义动画框架".equals(title)) {
             startActivity(new Intent(MainActivity.this, CustomAnimFrameActivity.class));
+        } else if ("Behavior（跟随）".equals(title)) {
+            startActivity(new Intent(MainActivity.this, FollowActivity.class));
         }
     }
 
