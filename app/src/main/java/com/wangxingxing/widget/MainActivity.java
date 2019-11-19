@@ -14,6 +14,7 @@ import com.wangxingxing.widget.lsn10.RecyclerDelActivity;
 import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
 import com.wangxingxing.widget.lsn11.LiziActivity;
 import com.wangxingxing.widget.lsn11.PropertyAnimActivity;
+import com.wangxingxing.widget.lsn12.CustomAnimFrameActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("RecycleView左滑显示菜单");
         titles.add("属性动画");
         titles.add("粒子扩散");
+        titles.add("自定义动画框架");
         return titles;
     }
 
@@ -133,6 +135,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, PropertyAnimActivity.class));
         } else if ("粒子扩散".equals(title)) {
             startActivity(new Intent(MainActivity.this, LiziActivity.class));
+        } else if ("自定义动画框架".equals(title)) {
+            startActivity(new Intent(MainActivity.this, CustomAnimFrameActivity.class));
         }
     }
 
