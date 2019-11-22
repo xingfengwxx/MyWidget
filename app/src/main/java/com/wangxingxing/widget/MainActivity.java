@@ -18,6 +18,7 @@ import com.wangxingxing.widget.lsn12.CustomAnimFrameActivity;
 import com.wangxingxing.widget.lsn13.FollowActivity;
 import com.wangxingxing.widget.lsn14.CollapsingToolbarLayoutActivity;
 import com.wangxingxing.widget.lsn14.CusBehUpDownActivity;
+import com.wangxingxing.widget.lsn16.CusLinearLayoutActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("Behavior（跟随）");
         titles.add("自定义Behavior（上滑隐藏，下拉显示）");
         titles.add("折叠控件");
+        titles.add("自定义LinearLayout，Behavior实现嵌套滑动");
         return titles;
     }
 
@@ -149,6 +151,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, CusBehUpDownActivity.class));
         } else if ("折叠控件".equals(title)) {
             startActivity(new Intent(MainActivity.this, CollapsingToolbarLayoutActivity.class));
+        } else if ("自定义LinearLayout，Behavior实现嵌套滑动".equals(title)) {
+            startActivity(new Intent(MainActivity.this, CusLinearLayoutActivity.class));
         }
     }
 

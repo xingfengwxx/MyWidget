@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn14.CollapsingToolbarLayoutActivity"
-            android:label="@string/title_collapsing_toolbar"
+        <activity android:name=".lsn16.CusLinearLayoutActivity"
+            android:label="@string/title_custom_linearlayout_behaviro"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".lsn14.CollapsingToolbarLayoutActivity"
+            android:label="@string/title_collapsing_toolbar"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ScrollingTestActivity"
             android:label="@string/title_activity_scrolling_test"

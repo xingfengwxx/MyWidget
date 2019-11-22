@@ -39,4 +39,9 @@
         <flag name="fromRight" value="0x08" />
     </attr>
 
+<!--    自定义LinearLayout，实现类似CoordinateLayout效果-->
+    <declare-styleable name="MyNestedLinearLayout">
+        <attr name="layout_behavior" format="string"></attr>
+    </declare-styleable>
+
 </resources>
