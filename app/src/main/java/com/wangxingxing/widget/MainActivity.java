@@ -18,7 +18,7 @@ import com.wangxingxing.widget.lsn12.CustomAnimFrameActivity;
 import com.wangxingxing.widget.lsn13.FollowActivity;
 import com.wangxingxing.widget.lsn14.CollapsingToolbarLayoutActivity;
 import com.wangxingxing.widget.lsn14.CusBehUpDownActivity;
-import com.wangxingxing.widget.lsn16.CusLinearLayoutActivity;
+import com.wangxingxing.widget.lsn15.CusLinearLayoutActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;

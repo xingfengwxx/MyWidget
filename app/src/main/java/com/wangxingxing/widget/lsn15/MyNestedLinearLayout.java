@@ -1,14 +1,12 @@
-package com.wangxingxing.widget.lsn16;
+package com.wangxingxing.widget.lsn15;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +15,6 @@ import androidx.core.view.NestedScrollingParent2;
 import com.wangxingxing.widget.R;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 public class MyNestedLinearLayout extends LinearLayout implements NestedScrollingParent2 {
     public MyNestedLinearLayout(Context context) {

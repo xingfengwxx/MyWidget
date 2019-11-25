@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.wangxingxing.widget.lsn16.MyNestedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wangxingxing.widget.lsn15.MyNestedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:my="http://schemas.android.com/apk/res-auto"
@@ -56,4 +56,4 @@
                 android:text="777"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</com.wangxingxing.widget.lsn16.MyNestedLinearLayout>
+</com.wangxingxing.widget.lsn15.MyNestedLinearLayout>
