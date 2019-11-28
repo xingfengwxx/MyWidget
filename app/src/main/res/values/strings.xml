@@ -32,6 +32,7 @@
     <string name="title_behavior_up_down">自定义Behavior（上滑隐藏，下拉显示）</string>
     <string name="title_collapsing_toolbar">折叠控件</string>
     <string name="title_custom_linearlayout_behaviro">自定义LinearLayout，Behavior实现嵌套滑动</string>
+    <string name="title_custom_recyclerview">手写RecycleView，回收池使用</string>
 
 
     <string name="title_activity_scrolling_test">ScrollingTestActivity</string>
