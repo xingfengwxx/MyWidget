@@ -20,6 +20,7 @@ import com.wangxingxing.widget.lsn14.CollapsingToolbarLayoutActivity;
 import com.wangxingxing.widget.lsn14.CusBehUpDownActivity;
 import com.wangxingxing.widget.lsn15.CusLinearLayoutActivity;
 import com.wangxingxing.widget.lsn16.CusRecyclerActivity;
+import com.wangxingxing.widget.lsn17.ImmersionActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("折叠控件");
         titles.add("自定义LinearLayout，Behavior实现嵌套滑动");
         titles.add("手写RecycleView，回收池使用");
+        titles.add("沉浸式布局");
         return titles;
     }
 
@@ -157,6 +159,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, CusLinearLayoutActivity.class));
         } else if ("手写RecycleView，回收池使用".equals(title)) {
             startActivity(new Intent(MainActivity.this, CusRecyclerActivity.class));
+        } else if ("沉浸式布局".equals(title)) {
+            startActivity(new Intent(MainActivity.this, ImmersionActivity.class));
         }
     }
 

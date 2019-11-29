@@ -12,8 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn16.CusRecyclerActivity"
-            android:label="@string/title_custom_recyclerview"></activity>
+        <activity android:name=".lsn17.SecondActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_fix_drawer_layout"/>
+        <activity
+            android:name=".lsn17.ImmersionActivity"
+            android:label="@string/title_immersion_layout"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".lsn16.CusRecyclerActivity"
+            android:label="@string/title_custom_recyclerview" />
         <activity
             android:name=".lsn15.CusLinearLayoutActivity"
             android:label="@string/title_custom_linearlayout_behaviro"
