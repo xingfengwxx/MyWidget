@@ -1,0 +1,82 @@
+﻿Material Design
+中文名：材料设计语言
+是由Google推出的全新的设计语言。
+谷歌表示，这种设计语言旨在为手机、平板电脑、台式机和“其他平台”提供更一致、更广泛的“外观和感觉”。
+
+
+Material Design语言  的一些重要功能包括 系统字体Roboto的升级版本 ，同时颜色更鲜艳，动画效果更突出。杜拉特还简要谈到了新框架的一些变化——这个新框架也于今天在 google.com/design 公开发布。谷歌的想法是让谷歌平台上的开发者掌握这个新框架，从而让所有应用就有统一的外观，就像是苹果向开发者提出的设计原则一样。谷歌还基于这种新的设计语言对本公司旗舰应用进行了重新设计，包括安卓和网页端的Gmail和Calendar。大家可能还会记得，看到过有关这些变动的文章， 有些博客 已经掌握了外泄截屏，显示经过了重新设计的Gmail，界面更干净、更简约。在安卓平台上，这种新界面被称为Material，支持各种新动画效果，具有内置的实时UI阴影，以及可在不同屏幕之间切换的hero元素。
+
+Material Design相关网站
+Material Design官网：https://www.mdui.org/design/material-design/introduction.html
+Material Design说明简书：https://www.jianshu.com/p/5dfed8a3a017
+
+
+Material Design中的部分控件
+1.Toolbar 
+2.CollapsingToolbarLayout 
+3.AppBarLayout 
+4.CoordinatorLayout 
+5.DrawerLayout 
+6.NavigationView 
+7.ActionBarDrawerToggle 
+8.Recyclerview 
+9.CardView 
+
+1.Toolbar
+用toolbar之前首先要将主题改为md风格的 
+Material Design的Theme 
+md的主题有： 
+•@Android:style/Theme.Material (dark version)
+•@android:style/Theme.Material.Light (light version) 
+•@android:style/Theme.Material.Light.DarkActionBar
+
+与之对应的Compat Theme: 
+•Theme.AppCompat 
+•Theme.AppCompat.Light 
+•Theme.AppCompat.Light.DarkActionBar 
+当然为了兼容低版本我们使用compat theme 
+先在res/values/styles.xml 中增加一个名为AppThemeBase的style
+
+
+
+
+
+AppCompatActivity  兼容Material Design的新Activity父类
+官方说明：从Android 21之后引入Material Design的设计方式，为了支持Material Color 、调色板、toolbar等各种新特性，AppCompatActivity就应用而生。
+代替了原有的ActionBarActivity。在AppCompatActivity中，更是引入了AppCompatDelegate类的设计，
+可以在普通的Acitivity中使用AppCompate的相关特性。
+
+
+当我们的Activity继承的是AppCompatActivity  的时候   AppCompatActivity会把我们的控件全部进行替换  替换成具备Material Design风格的控件
+AppCompatActivity.setContentView() --> AppCompatDelegateImpl.setContentView() --> AppCompatDelegateImpl.onCreateView() -->AppCompatDelegateImpl.createView --> AppCompatDelegateImpl.mAppCompatViewInflater.createView()
+
+
+
+
+
+CoordinatorLayout相关属性链接
+https://www.jianshu.com/p/575af19b63f7
+
+CoordinatorLayout的核心组件 --> Behavior （行为）
+
+
+app:layout_scrollFlags ：效果显示，视图滚动时，Toolbar会隐藏，这个效果是Android Support Library里面,新增的CoordinatorLayout, AppBarLayout实现的。
+
+通过AppBarLayout的子视图 的属性控制。这就是控制滑动时视图效果的属性。app:layout_scrollFlags有四个值：
+
+1、scroll: 所有想滚动出屏幕的view都需要设置这个flag， 没有设置这个flag的view将被固定在屏幕顶部。例如，TabLayout 没有设置这个值，将会停留在屏幕顶部。
+
+2、enterAlways: 设置这个flag时，向下的滚动都会导致该view变为可见，启用快速“返回模式”。
+
+3、enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。
+
+4、exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
+
+
+
+作者：颖字传说
+链接：https://www.jianshu.com/p/575af19b63f7
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+

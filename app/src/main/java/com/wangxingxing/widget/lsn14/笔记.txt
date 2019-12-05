@@ -1,0 +1,57 @@
+﻿MD常用的几大控件详解1.ToolBar 布局容器ToolBarToolbar 是应用内的action bars的一个归纳。看不懂？没关系。Toolbar使用来替代原来的ActionBar的就行了。Toolbar是一个ViewGroup容器！它的类中封装了几个控件1.Navigation Button  -->导航按钮2.Logo Image	-->logo图片3.title	-->标题4.subtitle -->副标题
+5.一个或多个自定义的View	 -->因为Toolbar是一个布局容器，所以在它里面可以包含其他控件  例如搜索框等。
+6.Action Menu -->溢出菜单
+
+AppbarLayout 垂直线程布局AppbarLayout继承自LinearLayout,它就是一个垂直方向的LinearLayout,在LinearLayout的基础上添加了一些材料设计的概念和特性，即滑动手势。它可以让你定制在某个可滑动的View（如：ScrollView ,ListView ,RecyclerView 等）滑动手势发生改变时，内部的子View 该做什么动作。
+子View应该提供滑动时他们期望的响应的动作Behavior,通过setScrollFlags(int)，或者xml中给需要滑动的子控件使用属性app:layout_scrollFlags=“”。layout_scrollFlags属性中的几个属性(对应的是AppbarLayout中Behavior的一些逻辑处理)1.scroll   
+子View添加layout_scrollFlags属性的值scroll时，这个View将会随着可滚动View（如：ScrollView）一起   滚动，
+就好像子View是属于ScrollView的一部分一样。
+2.enterAlways   
+子View添加layout_scrollFlags属性的值有enterAlways时, 当滑动控件向下滑动时，子View将直接向下滑动，
+而不管滑动控件是否在滑动。注意：要与滑动控件搭配使用，否者是不能滑动的。
+3.enterAlwaysCollapsed   
+enterAlwaysCollapsed是对enterAlways的补充，当滑动控件向下滑动的时候，滑动View（也就是设置了enterAlwaysCollapsed 的View）
+下滑至折叠的高度，当滑动控件到达滑动范围的结束值的时候，滑动View剩下的部分开始滑动。这个折叠的高度是通过View的minimum height 
+（最小高度）指定的。4.exitUntilCollapsed   
+当滑动控件滑出屏幕时（也就是向上滑动时），滑动View先响应滑动事件，滑动至折叠高度，也就是通过   minimum height 设置的最小高度后，
+就固定不动了，再把滑动事件交给 scrollview 继续滑动。
+5.snap   
+在滚动结束后，如果view只是部分可见，它将滑动到最近的边界。比如，如果view的底部只有25%可见，它将滚动离开屏幕，而如果底部有75%可见，
+它将滚动到完全显示。
+
+TabLayout 横向滚动控件TabLayout是Tab控件的容器，封装了多个操作Tab控件的属性，能让不同视图和功能之间的切换变得简单。
+Tab的大多属性是在TabLayout中进行设值1.app:tabIndicatorColor 设置指示器的颜色（默认情况下指示器的颜色为colorAccent）
+2.
+
+app:tabIndicatorHeight 设置指示器的高度，Material Design 规范建议是2dp
+
+
+3.app:tabMaxWidth 设置 Tab 的最大宽度
+
+
+4.app:tabMinWidth 设置 Tab 的最小宽度
+
+
+5.app:tabMode 设置Tabs的显示模式，有两个常量值，MODE_FIXED,MODE_SCROLLABLE。用法：
+
+app:tabMode="fixed"或者app:tabMode="scrollable"
+6.app:tabSelectedTextColor 设置Tab选中后，文字显示的颜色
+7.app:tabTextColor 设置Tab未选中，文字显示的颜色
+
+
+CollapsingToolbarLayout
+CollapsingToolbarLayout是一个折叠的Toolbar,它能够设置一种颜色或者一张图片来遮挡它里面的内容。推荐CoordinatorLayout + AppBarLayout + CollapsingToolbarLayout一起使用1.Collapsing title-->折叠标题 2.Content scrim-->内容纱布3.Status bar scrim-->状态栏纱布 
+4.Parallax scrolling children-->有视差地滚动子View5.Pinned position children-->固定子View的位置
+
+MD基础控件简书：https://www.jianshu.com/p/e2ae6aaff696
+Behavior简书：https://www.jianshu.com/p/82d18b0d18f4
+
+
+
+
+
+
+
+
+
+

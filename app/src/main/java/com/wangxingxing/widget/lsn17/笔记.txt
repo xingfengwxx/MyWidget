@@ -1,0 +1,98 @@
+设置沉浸式状态栏（虚拟按键）---------->
+1.通过设置Theme主题方式设置状态栏
+4.4-5.0版本
+<!-- 状态栏透明设置 必须是4.4以上的版本-->
+<item name="android:windowTranslucentStatus">true</item>
+<!-- 虚拟按键透明设置 -->
+<item name="android:windowTranslucentNavigation">true</item>
+5.0以上版本
+<!-- 状态栏透明设置 必须是4.4以上的版本 -->
+<item name="android:windowTranslucentStatus">false</item>
+<!-- 虚拟按键透明设置 -->
+<item name="android:windowTranslucentNavigation">true</item>
+<!-- 5.0以上设置状态栏的颜色  但是必须是windowTranslucentStatus为false  -->
+<item name="android:statusBarColor">@android:color/transparent</item>
+
+2.通过代码设置
+private void initStatus() {
+        //版本大于等于4.4
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            //获取到状态栏设置的两条属性
+            int flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            int flagTranslucentNavigation = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
+            //在4.4之后又有两种情况  第一种 4.4-5.0   第二种 5.0以上
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                //第二种 5.0以上
+                Window window   = getWindow();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.flags |= flagTranslucentNavigation;
+                window.setAttributes(attributes);
+                window.setStatusBarColor(0);
+            }else{
+                //第一种 4.4-5.0
+                Window window   = getWindow();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.flags |= flagTranslucentStatus|flagTranslucentNavigation;
+                window.setAttributes(attributes);
+            }
+        }
+    }
+
+不让内容填充到状态栏---------->
+1.简单的设置 xml根布局添加  android:fitsSystemWindows="true"
+2.代码中通过设置一个控件来代替状态栏。-->首先获取到在xml中加一个控件代替状态栏，然后获取到状态栏的高度赋值给代替者。
+ //获取到view控件
+        View statusBar = findViewById(R.id.statusBar);
+        //获取到它的Params对象
+        ViewGroup.LayoutParams layoutParams = statusBar.getLayoutParams();
+        //设置它的高度
+        layoutParams.height = getStatusHeight();
+        //设置layoutParams
+        statusBar.setLayoutParams(layoutParams);
+        //设置背景颜色
+        statusBar.setBackgroundColor(Color.RED);
+3. 在代码中设置padding值并且设置一个控件来代替状态栏。 
+ View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        //给根布局设置padding值
+        rootView.setPadding(0,getStatusHeight(),0,getNavigationBarHeight());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            //第二种 5.0以上
+            getWindow().setStatusBarColor(Color.RED);
+        }else{
+            //第一种 4.4-5.0
+            //获取到根布局
+            ViewGroup decorView = (ViewGroup) getWindow().getDecorView();
+            View statusBar = new View(this);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,getStatusHeight());
+            statusBar.setBackgroundColor(Color.RED);
+            statusBar.setLayoutParams(layoutParams);
+            decorView.addView(statusBar);
+        }    
+
+
+侧滑菜单问题----------->
+1.5.0菜单有阴影：解决办法给NavigationView 加入app:insetForeground="#00000000"
+2.4.4 可以给最外层布局设置fitSystemWidows为true且设置clipToPadding为false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

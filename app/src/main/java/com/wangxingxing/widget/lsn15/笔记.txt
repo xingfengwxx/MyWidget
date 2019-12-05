@@ -1,0 +1,110 @@
+﻿嵌套滑动的方法详解
+public interface NestedScrollingParent2 extends NestedScrollingParent {
+    /**
+     * 这个是嵌套滑动控制事件分发的控制方法，只有返回true才能接收到事件分发
+     * @param child 包含target的ViewParent的直接子View
+     * @param target 发起滑动事件的View
+     * @param axes 滑动的方向，数值和水平方向{@link ViewCompat#SCROLL_AXIS_HORIZONTAL},
+     *                         {@link ViewCompat#SCROLL_AXIS_VERTICAL} 
+     * @return true 表示父View接受嵌套滑动监听，否则不接受
+     */
+    boolean onStartNestedScroll(@NonNull View child, @NonNull View target, @ScrollAxis int axes,@NestedScrollType int type);
+
+    /**
+     * 这个方法在onStartNestedScroll返回true之后在正式滑动之前回调
+     * @param child 包含target的父View的直接子View
+     * @param target 发起嵌套滑动的View
+     * @param axes 滑动的方向，数值和水平方向{@link ViewCompat#SCROLL_AXIS_HORIZONTAL},
+     *                         {@link ViewCompat#SCROLL_AXIS_VERTICAL} or both
+     */
+    void onNestedScrollAccepted(@NonNull View child, @NonNull View target, @ScrollAxis int axes,@NestedScrollType int type);
+
+    /**
+     *
+     * @param target View that initiated the nested scroll
+     */
+    void onStopNestedScroll(@NonNull View target);
+
+    /**
+     * 在子View滑动过程中会分发这个嵌套滑动的方法，要想这里收到嵌套滑动事件必须在onStartNestedScroll返回true
+     * @param dxConsumed 子View在水平方向已经消耗的距离
+     * @param dyConsumed 子View在垂直方法已经消耗的距离
+     * @param dxUnconsumed 子View在水平方向剩下的未消耗的距离
+     * @param dyUnconsumed 子View在垂直方法剩下的未消耗的距离
+     * @param type 发起嵌套事件的类型 分为触摸（ViewParent.TYPE_TOUCH）和非触摸（ViewParent.TYPE_NON_TOUCH）
+     */
+    void onNestedScroll(@NonNull View target, int dxConsumed, int dyConsumed,
+            int dxUnconsumed, int dyUnconsumed, @NestedScrollType int type);
+
+    /**
+     * 在子View开始滑动之前让父View有机会先进行滑动处理
+     * @param dx 水平方向将要滑动的距离
+     * @param dy 竖直方向将要滑动的距离
+     * @param consumed Output. 父View在水平和垂直方向要消费的距离，consumed[0]表示水平方向的消耗，consumed[1]表示垂直方向的消耗，
+     */
+    void onNestedPreScroll(@NonNull View target, int dx, int dy, @NonNull int[] consumed,
+            @NestedScrollType int type);
+
+}
+
+
+
+
+public interface NestedScrollingChild2 extends NestedScrollingChild {
+
+    //返回值true表示找到了嵌套交互的ViewParent，type表示引起滑动事件的类型，这个事件和parent中的onStartNestedScroll是对应的
+    boolean startNestedScroll(@ScrollAxis int axes, @NestedScrollType int type);
+
+    
+    //停止嵌套滑动的回调
+    void stopNestedScroll(@NestedScrollType int type);
+
+    //表示有实现了NestedScrollingParent2接口的父类
+    boolean hasNestedScrollingParent(@NestedScrollType int type);
+
+    //分发嵌套滑动事件的过程
+    boolean dispatchNestedScroll(int dxConsumed, int dyConsumed,
+            int dxUnconsumed, int dyUnconsumed, @Nullable int[] offsetInWindow,
+            @NestedScrollType int type);
+
+    //在嵌套滑动之前分发事件
+    boolean dispatchNestedPreScroll(int dx, int dy, @Nullable int[] consumed,
+            @Nullable int[] offsetInWindow, @NestedScrollType int type);
+}
+
+
+Android嵌套滑动讲解简书：https://www.jianshu.com/p/f4763bf8f9ba
+
+方法总结
+startNestedScroll : 起始方法, 主要作用是找到接收滑动距离信息的外控件.
+
+dispatchNestedPreScroll : 在内控件处理滑动前把滑动信息分发给外控件.
+
+dispatchNestedScroll : 在内控件处理完滑动后把剩下的滑动距离信息分发给外控件.
+
+stopNestedScroll : 结束方法, 主要作用就是清空嵌套滑动的相关状态
+
+setNestedScrollingEnabled和isNestedScrollingEnabled : 一对get&set方法, 用来判断控件是否支持嵌套滑动.
+
+dispatchNestedPreFling和dispatchNestedFling : 跟Scroll的对应方法作用类似
+NestedScrollingParent
+
+on
+StartNestedScroll : 对应startNestedScroll, 内控件通过调用外控件的这个方法来确定外控件是否接收滑动信息.
+
+onNestedScrollAccepted : 当外控件确定接收滑动信息后该方法被回调, 可以让外控件针对嵌套滑动做一些前期工作.
+
+onNestedPreScroll : 关键方法, 接收内控件处理滑动前的滑动距离信息, 在这里外控件可以优先响应滑动操作, 消耗部分或者全部滑动距离.
+
+onNestedScroll : 关键方法, 接收内控件处理完滑动后的滑动距离信息, 在这里外控件可以选择是否处理剩余的滑动距离.
+
+onStopNestedScroll : 对应stopNestedScroll, 用来做一些收尾工作.
+
+onNestedPreFling和onNestedFling : 同上略
+
+
+
+
+
+
+
