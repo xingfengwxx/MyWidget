@@ -1,0 +1,86 @@
+什么是VLayout?
+1.Vlayout简单介绍
+阿里的开源框架，地址是：https://github.com/alibaba/vlayout/
+
+VirtualLayout是一个针对RecyclerView的LayoutManager扩展, 主要提供一整套布局方案和布局间的组件复用的问题。
+
+
+vlayout全称VirtualLayout，它是一个针对RecyclerView的LayoutManager扩展, 主要提供一整套布局方案和布局间的组件复用的问题。
+它通过定制化的LayoutManager，接管整个RecyclerView的布局逻辑；LayoutManager管理了一系列LayoutHelper，
+LayoutHelper负责具体布局逻辑实现的地方；每一个LayoutHelper负责页面某一个范围内的组件布局；不同的LayoutHelper可以做不同的布局逻辑，
+因此可以在一个RecyclerView页面里提供异构的布局结构，这就能比系统自带的LinearLayoutManager、GridLayoutManager等提供更加丰富的能力。同时支持扩展LayoutHelper来提供更多的布局能力。
+
+主要功能
+关键字：强排版-->H5?
+原生开发  短处就是复杂界面的开发非常麻烦  要解决事件分发以及滚动控件的嵌套问题
+默认通用布局实现，解耦所有的View和布局之间的关系: Linear, Grid, 吸顶, 浮动, 固定位置等 
+1：LinearLayoutHelper: 线性布局 
+2：GridLayoutHelper: Grid布局， 支持横向的colspan 
+3：FixLayoutHelper: 固定布局，始终在屏幕固定位置显示 
+4：ScrollFixLayoutHelper: 固定布局，但之后当页面滑动到该图片区域才显示, 可以用来做返回顶部或其他书签等 
+5：FloatLayoutHelper: 浮动布局，可以固定显示在屏幕上，但用户可以拖拽其位置 
+6：ColumnLayoutHelper: 栏格布局，都布局在一排，可以配置不同列之间的宽度比值 
+7：SingleLayoutHelper: 通栏布局，只会显示一个组件View 
+8：OnePlusNLayoutHelper: 一拖N布局，可以配置1-5个子元素 
+9：StickyLayoutHelper: stikcy布局， 可以配置吸顶或者吸底 
+10：StaggeredGridLayoutHelper: 瀑布流布局，可配置间隔高度/宽度
+上述默认实现里可以大致分为两类：一是非fix类型布局，像线性、Grid、栏格等，它们的特点是布局在整个页面流里，随页面滚动而滚动；另一类就是fix类型的布局，它们的子节点往往不随页面滚动而滚动。
+所有除布局外的组件复用，VirtualLayout将用来管理大的模块布局组合，扩展了RecyclerView，使得同一RecyclerView内的组件可以复用，减少View的创建和销毁过程。
+使用方法
+
+
+使用VLayout
+1.添加依赖包
+implementation 'com.alibaba.android:vlayout:1.0.3@aar'
+implementation 'com.android.support:recyclerview-v7:28.0.0-beta01'
+
+VirtualLayoutManager非常重要
+作用：分发滑动事件----》重绘onMearsure   onLayout。
+
+排版并不是把所有元素随意丢到界面显示，它需要符合人类的审美观，这个无论是Android还是Web等都是通用的
+排版是一种界面的整齐划分，符合用户的审美需求，常用排版有以下几种:   
+LinearLayoutHelper——线性布局    
+GridLayoutHelper    Grid布局    
+ScrollFixLayoutHelper——固定布局      
+ColumnLayoutHelper——栏格布局    
+FloatLayoutHelper——浮动布局    
+SingleLayoutHelper——   一个元素布局    
+OnePlusNLayoutHelper——一拖N布局    
+StickyLayoutHelper——stikcy布局    
+StaggeredGridLayoutHelper——瀑布流布局
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

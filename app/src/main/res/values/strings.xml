@@ -35,6 +35,8 @@
     <string name="title_custom_recyclerview">手写RecycleView，回收池使用</string>
     <string name="title_immersion_layout">沉浸式布局</string>
     <string name="title_fix_drawer_layout">解决DrawerLayout沉浸式适配问题</string>
+    <string name="title_vlayout_use">阿里VLayout使用</string>
+    <string name="title_taobao_main_ui">仿淘宝主界面</string>
 
 
     <string name="title_activity_scrolling_test">ScrollingTestActivity</string>

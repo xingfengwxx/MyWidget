@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.constant.PermissionConstants;
+import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.PermissionUtils;
 import com.wangxingxing.widget.lsn10.ConActivity;
 import com.wangxingxing.widget.lsn10.RecyclerDelActivity;
 import com.wangxingxing.widget.lsn10.RecyclerMenuActivity;
@@ -21,6 +24,8 @@ import com.wangxingxing.widget.lsn14.CusBehUpDownActivity;
 import com.wangxingxing.widget.lsn15.CusLinearLayoutActivity;
 import com.wangxingxing.widget.lsn16.CusRecyclerActivity;
 import com.wangxingxing.widget.lsn17.ImmersionActivity;
+import com.wangxingxing.widget.lsn18.TaobaoActivity;
+import com.wangxingxing.widget.lsn18.VLayoutActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -48,11 +53,14 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
     private List<String> mData;
     private TitleAdapter mAdapter;
 
+    private String permissions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getPermission();
         init();
     }
 
@@ -98,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("自定义LinearLayout，Behavior实现嵌套滑动");
         titles.add("手写RecycleView，回收池使用");
         titles.add("沉浸式布局");
+        titles.add("阿里VLayout使用");
+        titles.add("仿淘宝主界面");
         return titles;
     }
 
@@ -161,7 +171,28 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, CusRecyclerActivity.class));
         } else if ("沉浸式布局".equals(title)) {
             startActivity(new Intent(MainActivity.this, ImmersionActivity.class));
+        } else if ("阿里VLayout使用".equals(title)) {
+            startActivity(new Intent(MainActivity.this, VLayoutActivity.class));
+        } else if ("仿淘宝主界面".equals(title)) {
+            startActivity(new Intent(MainActivity.this, TaobaoActivity.class));
         }
+    }
+
+    private void getPermission() {
+        PermissionUtils.permission(PermissionConstants.STORAGE, PermissionConstants.LOCATION, PermissionConstants.PHONE)
+                .callback(new PermissionUtils.SimpleCallback() {
+
+                    @Override
+                    public void onGranted() {
+                        LogUtils.i("onGranted");
+                    }
+
+                    @Override
+                    public void onDenied() {
+                        LogUtils.e("onDenied");
+                    }
+                })
+                .request();
     }
 
 }
