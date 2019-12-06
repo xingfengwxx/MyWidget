@@ -52,7 +52,7 @@ dependencies {
 
     //VLayout
     implementation 'com.alibaba.android:vlayout:1.0.3@aar'
-    compile "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

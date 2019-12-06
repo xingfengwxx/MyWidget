@@ -1,6 +1,7 @@
 package com.wangxingxing.widget;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,6 +27,7 @@ import com.wangxingxing.widget.lsn16.CusRecyclerActivity;
 import com.wangxingxing.widget.lsn17.ImmersionActivity;
 import com.wangxingxing.widget.lsn18.TaobaoActivity;
 import com.wangxingxing.widget.lsn18.VLayoutActivity;
+import com.wangxingxing.widget.lsn19.CusFlowLayoutManagerActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
@@ -53,18 +55,20 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
     private List<String> mData;
     private TitleAdapter mAdapter;
 
-    private String permissions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getPermission();
         init();
     }
 
     private void init() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getPermission();
+        }
+
         mRecyclerView = findViewById(R.id.recyclerView);
         mData = getData();
         mAdapter = new TitleAdapter(mData, this);
@@ -108,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("沉浸式布局");
         titles.add("阿里VLayout使用");
         titles.add("仿淘宝主界面");
+        titles.add("自定义RecycleView流式布局管理器");
         return titles;
     }
 
@@ -175,6 +180,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, VLayoutActivity.class));
         } else if ("仿淘宝主界面".equals(title)) {
             startActivity(new Intent(MainActivity.this, TaobaoActivity.class));
+        } else if ("自定义RecycleView流式布局管理器".equals(title)) {
+            startActivity(new Intent(MainActivity.this, CusFlowLayoutManagerActivity.class));
         }
     }
 
