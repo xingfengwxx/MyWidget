@@ -15,7 +15,7 @@ public class CusFlowLayoutManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cus_flow_layout_manager);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new AutoLayoutManager());
+        recyclerView.setLayoutManager(new FlowLayoutManager());
         recyclerView.setAdapter(new MyAdapter());
     }
 }

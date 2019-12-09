@@ -34,7 +34,6 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
      */
     @Override
     public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-        super.onLayoutChildren(recycler, state);
         if (getItemCount() <= 0) {
             return;
         }
@@ -70,7 +69,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
             //需要换行
             if (offsetX + w > getWidth()) {
                 offsetY += h;
-                offsetX += w;
+                offsetX = w;
                 //保存位置
                 fram.set(0, offsetY, w, offsetY + h);
             } else {
