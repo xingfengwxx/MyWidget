@@ -29,6 +29,7 @@ import com.wangxingxing.widget.lsn18.TaobaoActivity;
 import com.wangxingxing.widget.lsn18.VLayoutActivity;
 import com.wangxingxing.widget.lsn19.CusFlowLayoutManagerActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
+import com.wangxingxing.widget.lsn20.ChinaMapActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("阿里VLayout使用");
         titles.add("仿淘宝主界面");
         titles.add("自定义RecycleView流式布局管理器");
+        titles.add("使用SVG手写中国地图");
         return titles;
     }
 
@@ -182,6 +184,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, TaobaoActivity.class));
         } else if ("自定义RecycleView流式布局管理器".equals(title)) {
             startActivity(new Intent(MainActivity.this, CusFlowLayoutManagerActivity.class));
+        } else if ("使用SVG手写中国地图".equals(title)) {
+            startActivity(new Intent(MainActivity.this, ChinaMapActivity.class));
         }
     }
 

@@ -6,14 +6,17 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn19.CusFlowLayoutManagerActivity"
-            android:label="@string/title_custom_flow_layout_manager"></activity>
+        <activity android:name=".lsn20.ChinaMapActivity"
+            android:label="@string/title_svg_china_map"></activity>
+        <activity
+            android:name=".lsn19.CusFlowLayoutManagerActivity"
+            android:label="@string/title_custom_flow_layout_manager" />
         <activity
             android:name=".lsn18.TaobaoActivity"
             android:label="@string/title_taobao_main_ui"
@@ -140,12 +143,14 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

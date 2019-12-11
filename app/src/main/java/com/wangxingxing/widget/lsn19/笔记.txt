@@ -1,0 +1,84 @@
+VirtualLayout原理讲解
+
+首先分析下 RecyclerView+VirtualLayout组合使用和原本的RecyclerView单独使用最大的区别在哪？
+适配器策略  adapter
+布局策略  LayoutManager
+这两点和原本的RecyclerView的区别是不是添加了一个中间者？DelegateAdapter类以及LayoutHelper类
+
+
+RecyclerView+VirtualLayout使用三部曲..
+第一步：RecyclerView.setLayoutManager(new VirtualLayoutManager());
+第二步：将所有的适配器全部丢入到DelegateAdapter中
+第二步：RecyclerView.Adapter(new DelegateAdapter());
+
+
+相同点：
+
+DelegateAdapter
+DelegateAdapter extends VirtualLayoutAdapter<RecyclerView.ViewHolder>    
+VirtualLayoutAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>
+通过这些代码我们可以看出DelegateAdapter它实际就是RecyclerView.Adapter的子类
+
+
+VirtualLayoutManager
+VirtualLayoutManager extends ExposeLinearLayoutManagerEx implements LayoutManagerHelper
+ExposeLinearLayoutManagerEx extends LinearLayoutManager
+通过这些代码我们可以看出VirtualLayoutManager它实际就是LinearLayoutManager的子类
+
+案例：
+皇帝（RecyclerView）           后宫佳丽三千 （DelegateAdapter ）            生孩子（item-->包括不同类型的Item（因为他们的母亲不一样））
+
+
+太傅或者少傅(LayoutHelper)
+
+
+
+太子  二皇子  三皇子   四皇子     N皇子
+
+
+很多同学之前有个误解  觉得每个子Adapter都是一个Item  但是实际上不是的 为什么呢？
+我们来想一下：VirtualLayout是不是对RecyclerView的扩展，那既然它只是一个扩展，那能不能改变RecyclerView的原有执行流程或者步骤，是不是不能？
+所以  回归本质  虽然我们出现了几个中间者  ，  但是最终还是要按RecyclerView自己的那一套来玩。
+
+我们知道RecyclerView如果要构建一个Item  它需要去调用适配器的onCreateViewHolder() 一个个Item去创建  
+DelegateAdapter只做了一件事情 选取一个itemType去创建item
+
+回收池的itemType回顾
+在我们之前讲的手写RecyclerView的回收池中我们是不是讲到了itemType   这个itemType决定了回收池的对象个数   一个itemType对应一个回收池对象
+
+那么为什么我们昨天写的代码中有没有定义itemType 是不是没见到  大家好不好奇DelegateAdapter是如何替我们去生成itemType的
+
+--------------DelegateAdapter作为最终设置给RecyclerView的适配器 是不是应该具有和RecyclerView.adapter一模一样的方法或者功能------------
+
+那我们先去翻一翻DelegateAdapter的源码   那从哪个地方开始看呢  我们就从setAdapters去开始看吧
+delegateAdapter.setAdapters(adapters) --->
+clear()方法   重置DelegateAdapter
+helper.setItemCount(adapter.getItemCount());这句话就解释了之前为什么我们设置了itemCount没用  是因为最近它去拿值去从这里去拿的
+
+mTotal所有的适配器的item数量的总和
+对应-----》RecyclerView.adapter中的
+@Override
+    public int getItemCount() {
+        return mTotal;
+    }
+
+delegateAdapter.onCreateViewHolder方法和delegateAdapter.onBinderViewHolder实际上最终调用的都是每个Adapter的相对应的方法
+
+
+itemType是通过delegateAdapter的getCantor方法生成的 getCantor它使用了二元函数算法来生成  因为我们自己没有重写itemType的方法 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
