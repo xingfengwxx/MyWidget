@@ -31,6 +31,7 @@ import com.wangxingxing.widget.lsn19.CusFlowLayoutManagerActivity;
 import com.wangxingxing.widget.lsn2.WaterfallFlowLayoutActivity;
 import com.wangxingxing.widget.lsn20.ChinaMapActivity;
 import com.wangxingxing.widget.lsn21.DouyinActivity;
+import com.wangxingxing.widget.lsn22.QZoneHeaderActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("自定义RecycleView流式布局管理器");
         titles.add("使用SVG手写中国地图");
         titles.add("仿抖音主界面");
+        titles.add("仿QQ空间可拉伸头部控件");
         return titles;
     }
 
@@ -190,6 +192,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, ChinaMapActivity.class));
         } else if ("仿抖音主界面".equals(title)) {
             startActivity(new Intent(MainActivity.this, DouyinActivity.class));
+        } else if ("仿QQ空间可拉伸头部控件".equals(title)) {
+            startActivity(new Intent(MainActivity.this, QZoneHeaderActivity.class));
         }
     }
 

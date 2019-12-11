@@ -1,0 +1,43 @@
+RecyclerView的四级缓存分析
+Recyclerview的缓存类
+RecycleView的四级缓存是由三个类共同作用完成的，Recycler、RecycledViewPool和ViewCacheExtension。
+
+
+Recycler
+用于管理已经废弃或者与RecyclerView分离的ViewHolder，这里面有两个重要的成员
+
+屏幕内缓存 屏幕内缓存指在屏幕中显示的ViewHolder，
+这些ViewHolder会缓存在mAttachedScrap、mChangedScrap中 
+mChangedScrap 表示数据已经改变的viewHolder列表 mAttachedScrap未与RecyclerView
+分离的ViewHolder列表
+屏幕外缓存 当列表滑动出了屏幕时，ViewHolder会被缓存在 mCachedViews ，其大小由mViewCacheMax决定，默认DEFAULT_CACHE_SIZE为2，
+可通过Recyclerview.setItemViewCacheSize()动态设置。
+RecycledViewPool
+RecycledViewPool类是用来缓存ViewHolder用，如果多个RecyclerView之间用setRecycledViewPool(RecycledViewPool)设置同一个RecycledViewPool，他们就可以共享ViewHolder。
+
+ViewCacheExtension
+开发者可自定义的一层缓存，是虚拟类ViewCacheExtension的一个实例，开发者可实现方法getViewForPositionAndType(Recycler recycler, int position, int type)来实现自己的缓存。
+
+----------------------------------        四级缓存   ---------------------------------------------->>
+//1.一级缓存：mAttachedScrap 一级缓存中用来存储屏幕中显示的ViewHolde
+final ArrayList<ViewHolder> mAttachedScrap = new ArrayList<>();
+//2.二级缓存：mCacheViews 用来存储屏幕外的缓存
+final ArrayList<ViewHolder> mCachedViews = new ArrayList<ViewHolder>();
+//3.三级缓存：mViewCacheExtension 根据coder自己定义的缓存规则
+private ViewCacheExtension mViewCacheExtension;
+//4.四级缓存：mRecyclerPool 当屏幕外缓存的大小大于2，便放入mRecyclerPool中缓存。
+RecycledViewPool mRecyclerPool;
+
+
+四级缓存什么时候执行的？
+1.第一级缓存执行流程
+RecyclerView.scrollBy()-->RecyclerView.scrollByInternal()-->RecyclerView.resumeRequestLayout()-->RecyclerView.dispatchLayout()-->RecyclerView.dispatchLayoutStep1()-->LayoutManager.onLayoutChildren()-->LayoutManager.scrapOrRecycleView()-->Recycler.scrapView()
+
+2.第二级缓存执行流程 执行条件  第一级缓存不要的才给第二级缓存
+Recycler.recycleViewHolderInternal()
+
+3.第四级缓存  第二级缓存满了  才给第四级缓存
+
+
+RecyclerView itemView是怎样布局的？
+LinearLayoutManager.onLayoutChildren()-->LinearLayoutManager.fill()-->LinearLayoutManager.layoutChunk()-->LayoutState.next()-->Recycler.getViewForPosition()-->Recycler.getViewForPosition()-->Recycler.tryGetViewHolderForPositionByDeadline()
