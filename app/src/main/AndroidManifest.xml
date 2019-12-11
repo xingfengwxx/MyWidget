@@ -12,8 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".lsn20.ChinaMapActivity"
-            android:label="@string/title_svg_china_map"></activity>
+        <activity android:name=".lsn21.DouyinActivity"
+            android:label="@string/title_douyin_main_ui"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".lsn20.ChinaMapActivity"
+            android:label="@string/title_svg_china_map" />
         <activity
             android:name=".lsn19.CusFlowLayoutManagerActivity"
             android:label="@string/title_custom_flow_layout_manager" />
@@ -143,14 +147,12 @@
             </intent-filter>
         </activity>
     </application>
-
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

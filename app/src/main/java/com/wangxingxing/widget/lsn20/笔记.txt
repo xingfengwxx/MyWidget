@@ -1,0 +1,64 @@
+课题:SVG矢量图形打造不规则的自定义控件-手写中国地图
+技术点：svg技术起源详解 
+svg解决复杂控件与动画的解决之路   
+在不规则的控件中如何判断事件边界  ??  
+svg实现控件自动缩放  
+
+svg 概念 ：矢量图形
+
+
+SVG 指可伸缩矢量图形 (Scalable Vector Graphics)
+SVG 用来定义用于网络的基于[矢量](https://baike.baidu.com/item/%E7%9F%A2%E9%87%8F/1400417)的图形
+SVG 使用 XML 格式定义图形
+SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失
+SVG 是万维网[联盟](https://baike.baidu.com/item/%E8%81%94%E7%9B%9F/4799014)的标准
+ SVG 与诸如 [DOM](https://baike.baidu.com/item/DOM/50288)和 [XSL](https://baike.baidu.com/item/XSL) 之类的[W3C](https://baike.baidu.com/item/W3C)标准是一个整体
+
+优势
+与其他图像格式相比，使用 SVG 的优势在于：
+
+SVG 可被非常多的工具读取和修改（比如记事本）
+SVG 与 JPEG 和 GIF 图像比起来，尺寸更小，且可压缩性更强。
+SVG 是可伸缩的
+SVG 图像可在任何的分辨率下被高质量地打印
+SVG 可在图像质量不下降的情况下被放大
+SVG 图像中的文本是可选的，同时也是可搜索的（很适合制作地图）
+SVG 可以与 Java 技术一起运行
+SVG 是开放的标准
+SVG 文件是纯粹的 XML
+
+svg的图像格式 一般是由 UI设计师来做
+
+编辑Svg地址
+http://editor.method.ac/
+在线编辑Svg
+https://www.zhangxinxu.com/sp/svg/
+svg语法教程 
+http://www.w3school.com.cn/svg/
+地图数据  
+https://www.amcharts.com/download/
+
+path支持的指令有：
+M = moveto(M X,Y) ：将画笔移动到指定的坐标位置
+L = lineto(L X,Y) ：画直线到指定的坐标位置
+H = horizontal lineto(H X)：画水平线到指定的X坐标位置
+V = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
+C = curveto(C X1,Y1,X2,Y2,ENDX,ENDY)：三次贝赛曲线
+S = smooth curveto(S X2,Y2,ENDX,ENDY)
+Q = quadratic Belzier curve(Q X,Y,ENDX,ENDY)：二次贝赛曲线
+T = smooth quadratic Belzier curveto(T ENDX,ENDY)：映射
+A = elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
+Z = closepath()：关闭路径
+
+Android 系统也会存在加载一个svg图片
+
+工具类PathParese.java
+
+ \android-6.0.0_r1\frameworks\base\core\java\android\util
+
+
+
+重写哪些方法？
+onDraw()
+onTouchEvent()
+
