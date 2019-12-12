@@ -33,6 +33,7 @@ import com.wangxingxing.widget.lsn20.ChinaMapActivity;
 import com.wangxingxing.widget.lsn21.DouyinActivity;
 import com.wangxingxing.widget.lsn22.QZoneHeaderActivity;
 import com.wangxingxing.widget.lsn22.SvgAnimActivity;
+import com.wangxingxing.widget.lsn23.LiveGiftActivity;
 import com.wangxingxing.widget.lsn3.FilterActivity;
 import com.wangxingxing.widget.lsn3.GradientActivity;
 import com.wangxingxing.widget.lsn3.MarqueeActivity;
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
         titles.add("仿抖音主界面");
         titles.add("仿QQ空间可拉伸头部控件");
         titles.add("SVG动画");
+        titles.add("直播间送礼物动画");
         return titles;
     }
 
@@ -198,6 +200,8 @@ public class MainActivity extends AppCompatActivity implements TitleAdapter.ILis
             startActivity(new Intent(MainActivity.this, QZoneHeaderActivity.class));
         } else if ("SVG动画".equals(title)) {
             startActivity(new Intent(MainActivity.this, SvgAnimActivity.class));
+        } else if ("直播间送礼物动画".equals(title)) {
+            startActivity(new Intent(MainActivity.this, LiveGiftActivity.class));
         }
     }
 
