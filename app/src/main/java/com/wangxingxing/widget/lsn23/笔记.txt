@@ -1,0 +1,183 @@
+高级UI面试详解:
+1.Android有时候用起来为什么会卡顿，卡顿的原因是什么，我们该怎么去优化？---------------------》
+这个时候我们不要急着去回答，要揣摩一下面试官到底想知道什么样的答案。
+大家可能会说是内存   cpu不足造成的卡顿，但是这个答案绝对不是面试官想要的答案。
+面试官之所以问这个问题，他想知道的是你对Android UI绘制流程的了解怎么样，在你自定义UI的时候是如何避免卡顿的。
+那造成UI卡顿的无非是两个主要原因，第一个是UI太复杂，嵌套太多导致的，第二个是我们自定义的UI或者控件本身存在问题。
+那所以我们可以从这两点出发去分析：
+那这个时候我们站在绘制流程的角度去讲，会好很多
+
+卡顿原因:
+一.布局Layout过于复杂，布局无法在16ms内完成渲染。
+那这个时候我们可以从布局无法在16ms内完成渲染这个点去进行分析，卡顿的原因就是无法在规定的时候内完成渲染，那我们应该怎么去说呢？
+比如说：我们布局渲染的一帧它是需要在16MS内完成的,假设16ms没有完成，那它会发生什么样的情况呢，那你可以告诉面试官。
+假设现在有个布局，渲染花了20ms，它没有在16ms中完成渲染，那这个时候会出现什么问题呢。在UI绘制中有一个概念叫做vysnc(垂直同步信号量)，
+我们UI之所以能进行渲染，全是由它来通知的，vysnc它是用来同步渲染，让AppUI和SurfaceFlinger可以按硬件产生的VSync节奏进行工作。那我们刚刚
+说到，绘制一帧，系统规定的时间是16ms，因为Android系统每隔16ms发出VSYNC信号通知渲染下一帧。现在我们遇到的情况是画了20ms才渲染完毕，
+那这个时候当VSync通知画第二帧的时候，你第一帧还没有画完，
+那就会继续延迟16ms，也就是说原本16ms完成的事情，现在画了32ms。那可能有很多同学会问，为什么是16ms，那是因为，16ms意味着1000/60hz，相当于60fps。这是因为人眼与大脑之间的协作无法感知超过60fps的画面更新,
+16ms的渲染时间的话，人眼是无法察觉到的，就好比显示器，它也有一个帧率的概念，帧率越高，显示器越高级，看起来越舒服，或者玩游戏，当我们FPS很低的时候，
+我们人眼就会感觉到像是在一帧一帧跳，这就是因为渲染的速度能被我们人眼所察觉。但现在我们如果32ms完成一帧的话，那1S就只有30多帧，所以我就能察觉到卡顿。
+那这个问题我们说清楚了，解决方案是什么呢？
+>>减少UI嵌套。
+>>尽量少调用requestLayout()。
+>>避免屏幕多次measure，layout，onDraw。
+>>注意内存抖动问题。
+>>避免在类似onDraw这样的方法中创建对象，因为它会迅速占用大量内存，引起频繁的GC甚至内存抖动
+
+二.View频繁的触发measure，layout，onDraw导致measure，layout累计耗时过多及导致整个View频繁的重新渲染。
+>>尽量少调用requestLayout()。
+>>避免屏幕多次measure，layout，onDraw。
+>>避免在类似onDraw这样的方法中创建对象，因为它会迅速占用大量内存，引起频繁的GC甚至内存抖动
+为什么要少调用requestLayout() 因为requestLayout它会重新测量布局和绘制，但是有时候在我们实际的开发中是不需要重新测绘量布局只需要重新绘制就可以，
+所以这个时候我们就不要去调用requestLayout（）而是invalidate()
+
+
+
+
+
+2.Android RecyclerView 滑动时图片加载的怎么进行优化。---------->
+//代码
+mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+@Override
+public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+    super.onScrollStateChanged(recyclerView, newState);
+    if (newState == RecyclerView.SCROLL_STATE_DRAGGING || newState == RecyclerView.SCROLL_STATE_SETTLING) {
+        sIsScrolling = true;
+        Glide.with(VipMasterActivity.this).pauseRequests();
+    } else if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+        if (sIsScrolling == true) {
+            Glide.with(VipMasterActivity.this).resumeRequests();
+        }
+        sIsScrolling = false;
+    }
+}
+
+@Override
+public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    super.onScrolled(recyclerView, dx, dy);
+  }
+});
+
+
+
+3.Activity的启动模式
+
+standard:默认标准模式，每启动一个都会创建一个实例，
+
+
+singleTop：栈顶复用，如果在栈顶就调用onNewIntent复用，从onResume()开始
+
+
+singleTask：栈内复用，本栈内只要用该类型Activity就会将其顶部的activity出栈
+
+
+singleInstance：单例模式，除了3中特性，系统会单独给该Activity创建一个栈
+
+
+4.View的绘制流程
+
+自定义控件： 1、组合控件。这种自定义控件不需要我们自己绘制，而是使用原生控件组合成的新控件。如标题栏。 2、继承原有的控件。这种自定义控件在原生控件提供的方法外，可以自己添加一些方法。如制作圆角，圆形图片。 3、完全自定义控件：这个View上所展现的内容全部都是我们自己绘制出来的。比如说制作水波纹进度条。
+
+
+View的绘制流程：OnMeasure()——>OnLayout()——>OnDraw()
+
+
+第一步：OnMeasure()：测量视图大小。从顶层父View到子View递归调用measure方法，measure方法又回调OnMeasure。
+
+
+第二步：OnLayout()：确定View位置，进行页面布局。从顶层父View向子View的递归调用view.layout方法的过程，即父View根据上一步measure子View所得到的布局大小和布局参数，将子View放在合适的位置上。
+
+
+第三步：OnDraw()：绘制视图。ViewRoot创建一个Canvas对象，然后调用OnDraw()。六个步骤：①、绘制视图的背景；②、保存画布的图层（Layer）；③、绘制View的内容；④、绘制View子视图，如果没有就不用； ⑤、还原图层（Layer）；⑥、绘制滚动条。
+
+
+
+
+5.如何规避oom?
+
+-->使用更加轻量的数据结构
+
+
+我们可以考虑使用ArrayMap/SparseArray而不是HashMap等传统数据结构，相比起Android系统专门为移动操作系统编写的ArrayMap容器，在大多数情况下，都显示效率低下，更占内存。通常的HashMap的实现方式更加消耗内存，因为它需要一个额外的实例对象来记录Mapping操作。另外，SparseArray更加高效在于他们避免了对key与value的autobox自动装箱，并且避免了装箱后的解箱。
+-->避免在Android里面使用Enum
+
+
+-->减小Bitmap对象的内存占用
+
+使
+Bitmap是一个极容易消耗内存的大胖子，减小创建出来的Bitmap的内存占用是很重要的，通常来说有下面2个措施：
+inSampleSize：缩放比例，在把图片载入内存之前，我们需要先计算出一个合适的缩放比例，避免不必要的大图载入。
+decode format：解码格式，选择ARGB_8888/RBG_565/ARGB_4444/ALPHA_8，存在很大差异。
+-->用更小的图片
+在设计给到资源图片的时候，我们需要特别留意这张图片是否存在可以压缩的空间，是否可以使用一张更小的图片。尽量使用更小的图片不仅仅可以减少内存的使用，还可以避免出现大量的InflationException。假设有一张很大的图片被XML文件直接引用，很有可能在初始化视图的时候就会因为内存不足而发生InflationException，这个问题的根本原因其实是发生了OOM。
+
+-->复用系统自带的资源
+Android系统本身内置了很多的资源，例如字符串/颜色/图片/动画/样式以及简单布局等等，这些资源都可以在应用程序中直接引用。这样做不仅仅可以减少应用程序的自身负重，减小APK的大小，另外还可以一定程度上减少内存的开销，复用性更好。但是也有必要留意Android系统的版本差异性，对那些不同系统版本上表现存在很大差异，不符合需求的情况，还是需要应用程序自身内置进去。
+
+-->注意在ListView/GridView等出现大量重复子组件的图里面对ConvertView的复用
+
+
+-->Bitmap对象的复用
+
+
+在ListView与GridView等显示大量图片的控件里面需要使用LRU的机制来缓存处理好的Bitmap。
+利用inBitmap的高级特性提高Android系统在Bitmap分配与释放执行效率上的提升(3.0以及4.4以后存在一些使用限制上的差异)。
+使用inBitmap属性可以告知Bitmap解码器去尝试使用已经存在的内存区域，新解码的bitmap会尝试去使用之前那张bitmap在heap中所占据的pixel data内存区域，
+而不是去问内存重新申请一块区域来存放bitmap。利用这种特性，即使是上千张的图片，也只会仅仅只需要占用屏幕所能够显示的图片数量的内存大小。
+-->避免在onDraw方法里面执行对象的创建
+
+类似onDraw等频繁调用的方法，一定需要注意避免在这里做创建对象的操作，因为他会迅速增加内存的使用，而且很容易引起频繁的gc，甚至是内存抖动。
+-->避免对象的内存泄露(重点)
+
+
+-->考虑使用Application Context而不是Activity Context
+
+
+通常来说，Activity的泄漏是内存泄漏里面最严重的问题，它占用的内存多，影响面广，我们需要特别注意以下两种情况导致的Activity泄漏：
+内部类引用导致Activity的泄漏
+最典型的场景是Handler导致的Activity泄漏，如果Handler中有延迟的任务或者是等待执行的任务队列过长，都有可能因为Handler继续执行而导致Activity发生泄漏。此时的引用关系链是Looper -> MessageQueue -> Message -> Handler -> Activity。为了解决这个问题，可以在UI退出之前，执行remove Handler消息队列中的消息与runnable对象。或者是使用Static + WeakReference的方式来达到断开Handler与Activity之间存在引用关系的目的。
+Activity Context被传递到其他实例中，这可能导致自身被引用而发生泄漏。
+内部类引起的泄漏不仅仅会发生在Activity上，其他任何内部类出现的地方，都需要特别留意！我们可以考虑尽量使用static类型的内部类，同时使用WeakReference的机制来避免因为互相引用而出现的泄露。
+对于大部分非必须使用Activity Context的情况（Dialog的Context就必须是Activity Context），我们都可以考虑使用Application Context而不是Activity的Context，这样可以避免不经意的Activity泄露。
+-->注意WebView的泄漏(重点)
+Android中的WebView存在很大的兼容性问题，不仅仅是Android系统版本的不同对WebView产生很大的差异，另外不同的厂商出货的ROM里面WebView也存在着很大的差异。更严重的是标准的WebView存在内存泄露的问题，看这里WebView causes memory leak - leaks the parent Activity。所以通常根治这个问题的办法是为WebView开启另外一个进程，通过AIDL与主进程进行通信，WebView所在的进程可以根据业务的需要选择合适的时机进行销毁，从而达到内存的完整释放。
+-->资源文件需要选择合适的文件夹进行存放
+
+
+-->谨慎使用static对象(重点)
+
+
+因为static的生命周期过长，和应用的进程保持一致，使用不当很可能导致对象泄漏，在Android中应该谨慎使用static对象。
+-->特别留意单例对象中不合理的持有
+
+
+虽然单例模式简单实用，提供了很多便利性，但是因为单例的生命周期和应用保持一致，使用不合理很容易出现持有对象的泄漏。
+-->主线程操作UI，子线程操作数据（必填）
+
+
+-->优化布局层次，减少内存消耗
+越扁平化的视图布局，占用的内存就越少，效率越高。我们需要尽量保证布局足够扁平化，当使用系统提供的View无法实现足够扁平的时候考虑使用自定义View来达到目的。
+
+
+
+6.如何将一个Activity设置成窗口的样式？
+
+第一种方法，在styles.xml文件中，可以新建如下的类似Dialog的style。
+
+
+<style name="Theme.FloatActivity" parent="android:style/Theme.Dialog"> </style>。
+
+
+第二种方法，在AndroidManifest.xml中在需要显示为窗口的Activity中添加如下属性:
+ android:theme=“@style/Theme.FloatActivity”。 也可以直接添加对应需要展示为Dialog style的Activity的android:theme属性为android:theme=“@android:style/Theme.Dialog”。
+
+
+
+
+
+
+
+
+
+
